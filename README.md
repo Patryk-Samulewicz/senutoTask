@@ -17,8 +17,8 @@ Rozwiązanie stosowane na starszych stronach typu "wpisz wynik działania 2+2".
 Boty zazwyczaj nie posługują się OCR, aby odczytywać tekst z obrazków, dodatkowo sam tekst na tych obrazkach jest mocno zniekształcony.
 Proste i skuteczne.
 
-5. Dodanie ukrytego pola w formularzu (type="hidden") – człowiek nie będzie w stanie uzupełnić takiego pola,
-a boty zazwyczaj wypełniają wszystkie pola formularza. (tzw. honeypot). Sposób podejścia do tego rozwiązania pokazałem w kodzie.
+5. Dodanie ukrytego pola w formularzu (type="hidden" lub ze zwykłym type="text" ale stylem display: none;) – człowiek nie będzie w stanie uzupełnić takiego pola,
+a boty zazwyczaj wypełniają wszystkie pola formularza (tzw. honeypot). Sposób podejścia do tego rozwiązania pokazałem w kodzie.
 
 
 ### Krótki opis kodu
@@ -28,7 +28,8 @@ W katalogu aplikacji umieściłem drobny moduł Security. Składa się on z klas
 która zawiera metody do zabezpieczenia formularza przed botami. W katalogu Services umieściłem usługi, z których mogą korzystać klasy we/wy do modułu.
 W katalogu Interfaces umieściłem interfejsy, które są wykorzystywane w serwisach.
 Serwisy wtedy nawiązując kontrakt zobowiązują się do dostarczenia w tym przypadku metody walidacyjnej.
-Starałem się ukazać wzorce
+
+Starałem się ukazać wzorce:
 1. SRP - każda klasa ma jedną odpowiedzialność.
 2. OCP - zasada otwarte/zamknięte - klasy są otwarte na rozszerzenie, ale zamknięte na modyfikację.
 3. DI - zasada odwrócenia zależności - zależności wstrzykiwane są z zewnątrz. Gdy będziemy chcieli zmienić walidator na inny zmienimy jedynie jego implementację.
